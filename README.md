@@ -22,12 +22,15 @@ keys for its MCP servers. Hermes keeps them out of the agent's terminal and code
    swctl --server https://app.aisecuritywarden.com setup
    ```
 
-2. Install the plugin. In the Hermes desktop app: **Capabilities → Plugins → Install from Git**, with
-   `https://github.com/SoftDevEng/aiSecurityWarden-hermes`. Or from a terminal:
+2. Install the plugin from the Hermes plugin catalog. In the desktop app, search for **aisecuritywarden** under
+   **Capabilities → Plugins**. Or from a terminal:
 
    ```bash
-   hermes plugins install SoftDevEng/aiSecurityWarden-hermes --enable
+   hermes plugins install aisecuritywarden --enable
    ```
+
+   (To follow this repository's newest commit instead of the reviewed one: Install from Git with
+   `https://github.com/SoftDevEng/aiSecurityWarden-hermes`.)
 
 3. Turn the source on, then restart Hermes (the gateway and the dashboard, if they run):
 
@@ -44,8 +47,9 @@ keys for its MCP servers. Hermes keeps them out of the agent's terminal and code
 
 At start-up Hermes then says `aiSecurityWarden: applied N secrets`, or why it couldn't and what to do.
 
-Updates: **Update all** in the desktop app, or `hermes plugins update aisecuritywarden`. Keep the client current too
-(`pipx upgrade aisecuritywarden`): the plugin runs its swctl.
+Updates: the desktop app shows **Update to …** when a new version is listed (or run
+`hermes plugins update aisecuritywarden`). Keep the client current too (`pipx upgrade aisecuritywarden`): the plugin
+runs its swctl.
 
 ## Settings (`secrets.aisecuritywarden` in config.yaml)
 
