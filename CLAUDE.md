@@ -12,7 +12,11 @@ clone of the client at the release tag:
 python -m securitywarden.client.hermes <path to this clone>
 ```
 
-then commit "Plugin vX.Y.Z" here, matching the client version (`plugin.yaml` carries it). The full order is in the
-server repository's `docs/RELEASE.md`. Sessions open PRs only; Brian merges.
+then commit "Plugin vX.Y.Z" here, matching the client version (`plugin.yaml` carries it). The plugin is listed in the
+Hermes plugin catalog (`plugin-catalog/aisecuritywarden.yaml` in NousResearch/hermes-agent), pinned to a commit of this
+repository: a changed plugin also needs a catalog PR bumping `sha` and `version` (the server repository's
+`scripts/bump-hermes-catalog.ps1`). Never force-push or rewrite `main`: a pinned commit that disappears gets the
+listing removed. The full order is in the server repository's `docs/RELEASE.md`. Sessions open PRs only; Brian
+merges.
 
 Keep nothing else at the top level that Hermes would load: no other Python files, no tests (they live in the client).
